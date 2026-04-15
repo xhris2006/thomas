@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Admission {
+  id            String           @id @default(cuid())
+  nom           String
+  prenom        String
+  dateNaissance DateTime
+  sexe          String
+  classDemandee String
+  nomParent     String
+  telephone     String
+  email         String
+  adresse       String
+  documentUrl   String?
+  status        AdmissionStatus  @default(PENDING)
+  reference     String           @unique @default(cuid())
+  createdAt     DateTime         @default(now())
+}
+
+enum AdmissionStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model Announcement {
+  id          String   @id @default(cuid())
+  title       String
+  content     String   @db.Text
+  imageUrl    String?
+  publishedAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+}
+
+model Event {
+  id        String       @id @default(cuid())
+  title     String
+  date      DateTime
+  category  String
+  photos    EventPhoto[]
+  createdAt DateTime     @default(now())
+}
+
+model EventPhoto {
+  id        String   @id @default(cuid())
+  url       String
+  event     Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  eventId   String
+  createdAt DateTime @default(now())
+}
