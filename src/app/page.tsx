@@ -21,10 +21,10 @@ export default async function HomePage() {
               Une mission educative qui conjugue foi, savoir et leadership.
             </h2>
             <p className="text-base leading-8 text-brand-blue/75">
-              Le Collège Saint Thomas d'Aquin accompagne chaque eleve dans la
-              construction d'un parcours exigeant, bilingue et ouvert sur le
-              monde. Notre communaute scolaire encourage l'excellence academique,
-              le sens des responsabilites et l'epanouissement personnel.
+              Le Collège Saint Thomas d&rsquo;Aquin accompagne chaque eleve dans la
+              construction d&rsquo;un parcours exigeant, bilingue et ouvert sur le
+              monde. Notre communaute scolaire encourage l&rsquo;excellence academique,
+              le sens des responsabilites et l&rsquo;epanouissement personnel.
             </p>
           </div>
           <div className="card-panel bg-school-radial p-8 text-white">

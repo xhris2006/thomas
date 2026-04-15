@@ -43,11 +43,11 @@ export function HeroSlider() {
             Institution bilingue
           </p>
           <h1 className="font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-            Bienvenue au Collège Saint Thomas d'Aquin
+            Bienvenue au Collège Saint Thomas d&rsquo;Aquin
           </h1>
           <p className="max-w-2xl text-base text-white/80 sm:text-lg">
-            Un cadre d'apprentissage exigeant, humain et inspire par les valeurs
-            de foi, de discipline et d'ouverture au monde.
+            Un cadre d&rsquo;apprentissage exigeant, humain et inspire par les valeurs
+            de foi, de discipline et d&rsquo;ouverture au monde.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href="/inscription" className="button-primary">

@@ -18,7 +18,7 @@ export default async function AdminOverviewPage() {
       <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
         <div>
           <p className="text-sm uppercase tracking-[0.3em] text-brand-gold">Administration</p>
-          <h1 className="font-display text-4xl font-bold text-brand-blue">Vue d'ensemble</h1>
+          <h1 className="font-display text-4xl font-bold text-brand-blue">Vue d&rsquo;ensemble</h1>
         </div>
         <div className="flex gap-3">
           <Link href="/admin/admissions" className="button-primary">

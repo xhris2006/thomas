@@ -17,7 +17,7 @@ export default function SuccessPage({
           </span>
         </p>
         <Link href="/" className="button-primary mt-8">
-          Retour a l'accueil
+          Retour a l&rsquo;accueil
         </Link>
       </div>
     </section>

@@ -21,7 +21,7 @@ export async function Navbar() {
           <SiteLogo />
           <div>
             <p className="font-display text-lg font-bold text-brand-blue">
-              Collège Saint Thomas d'Aquin
+              Collège Saint Thomas d&rsquo;Aquin
             </p>
             <p className="text-xs uppercase tracking-[0.24em] text-brand-gold">
               Excellence bilingue

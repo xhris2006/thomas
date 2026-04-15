@@ -9,10 +9,10 @@ export default function InscriptionPage() {
             Admission
           </p>
           <h1 className="font-display text-4xl font-bold text-brand-blue">
-            Formulaire d'inscription
+            Formulaire d&rsquo;inscription
           </h1>
           <p className="text-sm leading-7 text-brand-blue/70">
-            Remplissez soigneusement les informations de l'eleve et joignez un
+            Remplissez soigneusement les informations de l&rsquo;eleve et joignez un
             document justificatif pour lancer le traitement du dossier.
           </p>
         </div>

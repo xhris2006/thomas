@@ -9,19 +9,19 @@ export function Footer() {
           <div className="flex items-center gap-3">
             <SiteLogo />
             <div>
-              <p className="font-display text-xl font-bold">Collège Saint Thomas d'Aquin</p>
+              <p className="font-display text-xl font-bold">Collège Saint Thomas d&rsquo;Aquin</p>
               <p className="text-sm text-white/70">Former, servir, rayonner.</p>
             </div>
           </div>
           <p className="max-w-md text-sm text-white/80">
-            Etablissement bilingue dedie a l'excellence academique, a la discipline
+            Etablissement bilingue dedie a l&rsquo;excellence academique, a la discipline
             et au developpement integral de chaque eleve.
           </p>
         </div>
 
         <div className="space-y-3 text-sm">
           <p className="font-semibold text-brand-gold">Contact</p>
-          <p>Avenue de l'Education, Quartier Saint Joseph</p>
+          <p>Avenue de l&rsquo;Education, Quartier Saint Joseph</p>
           <p>+234 800 123 4567</p>
           <p>contact@sta-college.edu</p>
         </div>
@@ -37,7 +37,7 @@ export function Footer() {
             </Link>
           </div>
           <p className="pt-4 text-white/60">
-            © {new Date().getFullYear()} Collège Saint Thomas d'Aquin.
+            © {new Date().getFullYear()} Collège Saint Thomas d&rsquo;Aquin.
           </p>
         </div>
       </div>
