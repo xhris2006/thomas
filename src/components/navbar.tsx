@@ -8,9 +8,6 @@ import { useState } from "react";
 
 const navItems = [
   { href: "/", label: "Accueil" },
-  { href: "/inscription", label: "Inscriptions" },
-  { href: "/annonces", label: "Annonces" },
-  { href: "/galerie", label: "Galerie" },
 ];
 
 export function Navbar() {
@@ -44,9 +41,9 @@ export function Navbar() {
             </svg>
           </button>
 
-          <nav className="hidden md:flex flex-wrap items-center gap-3 text-sm font-semibold text-brand-blue">
+          <nav className="hidden md:flex flex-wrap items-center gap-4 text-sm font-semibold text-brand-blue">
             {navItems.map((item) => (
-              <Link key={item.href} href={item.href} className="rounded-full px-4 py-2 hover:bg-brand-blue/5">
+              <Link key={item.href} href={item.href} className="px-4 py-2 rounded-lg transition-all hover:bg-brand-blue hover:text-white">
                 {item.label}
               </Link>
             ))}
@@ -55,7 +52,6 @@ export function Navbar() {
                 <Link href={session.user.role === "ADMIN" ? "/admin" : "/dashboard"} className="button-primary">
                   Tableau de bord
                 </Link>
-                <LogoutButton />
               </>
             ) : (
               <Link href="/connexion" className="button-primary">
@@ -69,13 +65,13 @@ export function Navbar() {
       {/* Sidebar for mobile */}
       {sidebarOpen && (
         <div className="fixed inset-0 z-50 md:hidden">
-          <div className="fixed inset-0 bg-black/50" onClick={() => setSidebarOpen(false)} />
-          <div className="fixed left-0 top-0 h-full w-64 bg-white shadow-lg transform transition-transform">
-            <div className="flex items-center justify-between p-4 border-b">
-              <SiteLogo />
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-all" onClick={() => setSidebarOpen(false)} />
+          <div className="fixed left-0 top-0 h-full w-64 bg-gradient-to-b from-brand-blue to-brand-blue/95 text-white shadow-2xl animate-in slide-in-from-left">
+            <div className="flex items-center justify-between p-4 border-b border-white/20">
+              <p className="font-display text-lg font-bold">Menu</p>
               <button
                 onClick={() => setSidebarOpen(false)}
-                className="p-2 text-brand-blue"
+                className="p-2 hover:bg-white/20 rounded-lg transition-all"
                 aria-label="Close menu"
               >
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -83,23 +79,36 @@ export function Navbar() {
                 </svg>
               </button>
             </div>
-            <nav className="flex flex-col p-4 space-y-4 text-sm font-semibold text-brand-blue">
+            <nav className="flex flex-col p-4 space-y-2 text-sm font-semibold">
               {navItems.map((item) => (
-                <Link key={item.href} href={item.href} className="py-2" onClick={() => setSidebarOpen(false)}>
+                <Link 
+                  key={item.href} 
+                  href={item.href} 
+                  className="px-4 py-3 rounded-lg hover:bg-white/20 transition-all duration-300 hover:translate-x-1"
+                  onClick={() => setSidebarOpen(false)}
+                >
                   {item.label}
                 </Link>
               ))}
               {session?.user ? (
                 <>
-                  <Link href={session.user.role === "ADMIN" ? "/admin" : "/dashboard"} className="button-primary py-2" onClick={() => setSidebarOpen(false)}>
+                  <Link 
+                    href={session.user.role === "ADMIN" ? "/admin" : "/dashboard"} 
+                    className="px-4 py-3 rounded-lg bg-white/20 hover:bg-white/30 transition-all duration-300 mt-4"
+                    onClick={() => setSidebarOpen(false)}
+                  >
                     Tableau de bord
                   </Link>
-                  <div className="py-2">
+                  <div className="pt-4 border-t border-white/20">
                     <LogoutButton />
                   </div>
                 </>
               ) : (
-                <Link href="/connexion" className="button-primary py-2" onClick={() => setSidebarOpen(false)}>
+                <Link 
+                  href="/connexion" 
+                  className="px-4 py-3 rounded-lg bg-white/20 hover:bg-white/30 transition-all duration-300 mt-4"
+                  onClick={() => setSidebarOpen(false)}
+                >
                   Connexion
                 </Link>
               )}
