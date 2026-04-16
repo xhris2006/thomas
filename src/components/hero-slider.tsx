@@ -40,14 +40,14 @@ export function HeroSlider() {
       <div className="section-shell relative grid min-h-[72vh] items-center py-20 text-white">
         <div className="max-w-3xl space-y-6">
           <p className="text-sm font-semibold uppercase tracking-[0.4em] text-brand-gold">
-            Institution bilingue
+            Complexe Scolaire Bilingue
           </p>
           <h1 className="font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-            Bienvenue au Collège Saint Thomas d&rsquo;Aquin
+            Bienvenue au Complexe Scolaire Bilingue Thomas D&rsquo;Acquin
           </h1>
           <p className="max-w-2xl text-base text-white/80 sm:text-lg">
             Un cadre d&rsquo;apprentissage exigeant, humain et inspire par les valeurs
-            de foi, de discipline et d&rsquo;ouverture au monde.
+            de Travail, Discipline et Succès.          </p>
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href="/inscription" className="button-primary">
