@@ -11,7 +11,8 @@ async function assertAdmin() {
   return session?.user.role === "ADMIN";
 }
 
-export async function PUT(request: Request, { params }: { params: { id: string } }) {
+export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   if (!(await assertAdmin())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
@@ -24,7 +25,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
       : undefined;
 
   await prisma.announcement.update({
-    where: { id: params.id },
+    where: { id },
     data: {
       title: String(formData.get("title") ?? ""),
       content: String(formData.get("content") ?? ""),
@@ -36,11 +37,12 @@ export async function PUT(request: Request, { params }: { params: { id: string }
   return NextResponse.json({ ok: true });
 }
 
-export async function DELETE(_: Request, { params }: { params: { id: string } }) {
+export async function DELETE(_: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   if (!(await assertAdmin())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  await prisma.announcement.delete({ where: { id: params.id } });
+  await prisma.announcement.delete({ where: { id } });
   return NextResponse.json({ ok: true });
 }

@@ -7,8 +7,9 @@ import { sendMail } from "@/lib/mailer";
 
 export async function PATCH(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
+  const { id } = await params;
   const session = await getServerSession(authOptions);
 
   if (session?.user.role !== "ADMIN") {
@@ -18,7 +19,7 @@ export async function PATCH(
   const body = (await request.json()) as { status: AdmissionStatus };
 
   const admission = await prisma.admission.update({
-    where: { id: params.id },
+    where: { id },
     data: { status: body.status },
   });
 
