@@ -1,14 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { signIn } from "next-auth/react";
-import { useSearchParams } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { signIn, useSession } from "next-auth/react";
+import { FormEvent, useState, useEffect } from "react";
 
 export function LoginForm() {
-  const searchParams = useSearchParams();
+  const { data: session } = useSession();
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    // Rediriger après connexion réussie
+    if (session?.user) {
+      const redirectUrl = session.user.role === "ADMIN" ? "/admin" : "/dashboard";
+      window.location.href = redirectUrl;
+    }
+  }, [session]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -16,7 +23,6 @@ export function LoginForm() {
     setError(null);
 
     const formData = new FormData(event.currentTarget);
-    const callbackUrl = searchParams.get("callbackUrl") ?? "/dashboard";
     const email = String(formData.get("email") ?? "");
     const password = String(formData.get("password") ?? "");
 
@@ -24,7 +30,6 @@ export function LoginForm() {
       email,
       password,
       redirect: false,
-      callbackUrl,
     });
 
     if (!result || result.error) {
@@ -33,7 +38,7 @@ export function LoginForm() {
       return;
     }
 
-    window.location.href = result.url ?? callbackUrl;
+    // La redirection est gérée par le useEffect ci-dessus
   }
 
   return (
