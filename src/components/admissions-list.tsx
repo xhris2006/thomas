@@ -62,7 +62,7 @@ export function AdmissionsList({ admissions }: { admissions: Admission[] }) {
           <div className="bg-white rounded-2xl p-8 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-6">
               <h2 className="font-display text-2xl font-bold text-brand-blue">
-                Détails de l'admission
+                Détails de l&apos;admission
               </h2>
               <button
                 onClick={() => setSelectedAdmission(null)}
@@ -75,9 +75,9 @@ export function AdmissionsList({ admissions }: { admissions: Admission[] }) {
             </div>
 
             <div className="space-y-6">
-              {/* Informations de l'élève */}
+              {/* Informations de l&apos;élève */}
               <div>
-                <h3 className="font-semibold text-brand-blue mb-3">Informations de l'élève</h3>
+                <h3 className="font-semibold text-brand-blue mb-3">Informations de l&apos;élève</h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="text-sm text-brand-blue/70">Prénom</p>
