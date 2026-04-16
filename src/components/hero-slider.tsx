@@ -47,7 +47,7 @@ export function HeroSlider() {
           </h1>
           <p className="max-w-2xl text-base text-white/80 sm:text-lg">
             Un cadre d&rsquo;apprentissage exigeant, humain et inspire par les valeurs
-            de Travail, Discipline et Succès.          </p>
+            de Travail, Discipline et Succès.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href="/inscription" className="button-primary">
