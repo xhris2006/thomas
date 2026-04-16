@@ -104,12 +104,12 @@ export function AdminSidebar() {
 
       {/* Mobile Sidebar */}
       {sidebarOpen && (
-        <div className="fixed inset-0 z-50 md:hidden">
+        <div className="fixed inset-0 z-50 md:hidden flex">
           <div
             className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-all"
             onClick={() => setSidebarOpen(false)}
           />
-          <div className="fixed left-0 top-0 h-full w-64 bg-gradient-to-b from-brand-blue to-brand-blue/95 text-white flex flex-col shadow-2xl animate-in slide-in-from-left">
+          <div className="fixed left-0 top-0 h-full w-64 bg-gradient-to-b from-brand-blue to-brand-blue/95 text-white flex flex-col shadow-2xl transition-transform duration-300">
             <div className="flex items-center justify-between p-6 border-b border-white/20">
               <p className="font-display text-lg font-bold">Admin</p>
               <button
@@ -123,16 +123,16 @@ export function AdminSidebar() {
               </button>
             </div>
 
-            <nav className="flex-1 space-y-2 p-4">
+            <nav className="flex-1 space-y-2 p-4 overflow-y-auto">
               {adminNavItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setSidebarOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/20 transition-all duration-300 group"
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/20 hover:translate-x-1 transition-all duration-300 group"
                 >
-                  <span className="opacity-80 group-hover:opacity-100">{getIcon(item.icon)}</span>
-                  <span className="text-sm font-medium">{item.label}</span>
+                  <span className="opacity-80 group-hover:opacity-100 transition-opacity">{getIcon(item.icon)}</span>
+                  <span className="text-sm font-medium group-hover:font-semibold">{item.label}</span>
                 </Link>
               ))}
             </nav>
