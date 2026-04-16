@@ -7,11 +7,12 @@ import { formatDate } from "@/lib/utils";
 export default async function AdminAdmissionsPage({
   searchParams,
 }: {
-  searchParams: { status?: AdmissionStatus };
+  searchParams: Promise<{ status?: AdmissionStatus }>;
 }) {
   await requireAdmin();
 
-  const selectedStatus = searchParams.status;
+  const params = await searchParams;
+  const selectedStatus = params.status;
   const admissions = await prisma.admission.findMany({
     where: selectedStatus ? { status: selectedStatus } : {},
     orderBy: { createdAt: "desc" },

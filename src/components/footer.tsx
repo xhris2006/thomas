@@ -37,7 +37,7 @@ export function Footer() {
             </Link>
           </div>
           <p className="pt-4 text-white/60">
-            © {new Date().getFullYear()} Collège Saint Thomas d&rsquo;Aquin.
+            © {new Date().getFullYear()} Complexe Scolaire Bilingue Thomas D&rsquo;Acquin.
           </p>
         </div>
       </div>

@@ -8,9 +8,10 @@ const PAGE_SIZE = 10;
 export default async function AnnoncesPage({
   searchParams,
 }: {
-  searchParams: { page?: string };
+  searchParams: Promise<{ page?: string }>;
 }) {
-  const page = Math.max(1, Number(searchParams.page ?? "1"));
+  const params = await searchParams;
+  const page = Math.max(1, Number(params.page ?? "1"));
   const [announcements, total] = await Promise.all([
     prisma.announcement.findMany({
       orderBy: { publishedAt: "desc" },

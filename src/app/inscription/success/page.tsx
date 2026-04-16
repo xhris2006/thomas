@@ -1,10 +1,11 @@
 import Link from "next/link";
 
-export default function SuccessPage({
+export default async function SuccessPage({
   searchParams,
 }: {
-  searchParams: { reference?: string };
+  searchParams: Promise<{ reference?: string }>;
 }) {
+  const params = await searchParams;
   return (
     <section className="section-shell py-16">
       <div className="mx-auto max-w-2xl rounded-[2rem] bg-brand-blue p-10 text-white shadow-soft">
@@ -13,7 +14,7 @@ export default function SuccessPage({
         <p className="mt-4 text-white/80">
           Reference:{" "}
           <span className="font-semibold text-brand-gold">
-            {searchParams.reference ?? "indisponible"}
+            {params.reference ?? "indisponible"}
           </span>
         </p>
         <Link href="/" className="button-primary mt-8">

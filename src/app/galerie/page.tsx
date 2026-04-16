@@ -5,10 +5,11 @@ import { GalleryLightbox } from "@/components/gallery-lightbox";
 export default async function GaleriePage({
   searchParams,
 }: {
-  searchParams: { year?: string; category?: string };
+  searchParams: Promise<{ year?: string; category?: string }>;
 }) {
-  const year = searchParams.year;
-  const category = searchParams.category;
+  const params = await searchParams;
+  const year = params.year;
+  const category = params.category;
 
   const events = await prisma.event.findMany({
     where: {
